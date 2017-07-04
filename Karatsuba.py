@@ -19,15 +19,24 @@ def Karatsuba(x,y):
     n = len(xstr)
 
     # base case
-    if n == 1 or x == 0 or y == 0:
+    if x < 10 or y < 10:
        return x*y
+
+    # Adding protection against cases that will currently crash program
+    if len(xstr) != len(ystr):
+        print "ERROR: Numbers must have the same number of digits. Please try again."
+        #return -1
+
+    if n % 2 != 0:
+        print "ERROR: Numbers must have an even number of digits. Please try again."
+        return -1
 
     nby2 = n/2  
 
     a = int(xstr[:nby2])
-    b = x - pow(10,nby2)*a
+    b = int(x - pow(10,nby2)*a)
     c = int(ystr[:nby2])
-    d = y - pow(10,nby2)*c
+    d = int(y - pow(10,nby2)*c)
 
     ac = Karatsuba(a,c);
 
@@ -37,14 +46,16 @@ def Karatsuba(x,y):
 
     bc = Karatsuba(b,c);
 
-    sum = pow(10,nby2)*ac + pow(10,nby2)*(ad+bc) + bd
+    sum = pow(10,n)*ac + pow(10,nby2)*(ad+bc) + bd
+
+    print "Sum is: " + str(sum)
 
     return sum
 
 #***********************************************************************************************************   
-#----------------------------------------------------------------------------------------------------------    
+#-----------------------------------------------------------------------------------------------------------    
 # Starting Program that accepts two numbers and returns their product calculated via the Karatsuba algorithm
-#----------------------------------------------------------------------------------------------------------    
+#-----------------------------------------------------------------------------------------------------------    
 #***********************************************************************************************************   
 
 if len(sys.argv) != 3:
