@@ -13,8 +13,8 @@ def Karatsuba(x,y):
     icount = icount + 1
     #if icount > 5: sys.exit()
 
-    xstr = str(x);
-    ystr = str(y);
+    xstr = str(x)
+    ystr = str(y)
 
     n = len(xstr)
 
@@ -38,13 +38,13 @@ def Karatsuba(x,y):
     c = int(ystr[:nby2])
     d = int(y - pow(10,nby2)*c)
 
-    ac = Karatsuba(a,c);
+    ac = Karatsuba(a,c)
 
-    bd = Karatsuba(b,d);
+    bd = Karatsuba(b,d)
 
-    ad = Karatsuba(a,d);
+    ad = Karatsuba(a,d)
 
-    bc = Karatsuba(b,c);
+    bc = Karatsuba(b,c)
 
     sum = pow(10,n)*ac + pow(10,nby2)*(ad+bc) + bd
 
