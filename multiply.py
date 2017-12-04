@@ -13,7 +13,7 @@ def multiply(num1, num2):
     ystr = str(num2)
     print str(len(xstr))
     print str(len(ystr))
-   
+
     if len(xstr) == 0 or len(ystr) == 0:
         print "Error: One or more of the inputs is null."
         return -1
@@ -21,6 +21,7 @@ def multiply(num1, num2):
     if len(xstr) != len(ystr):
         print "Error: numbers have different numbers of digits."
         return -1
+
 
     if len(xstr) == 1:
         return num1*num2
