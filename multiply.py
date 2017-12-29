@@ -8,12 +8,10 @@ def multiply(num1, num2):
     Multiplies two numbers using the Karatsuba algorithm
     """
 
-    #base case
     xstr = str(num1)
     ystr = str(num2)
-    print str(len(xstr))
-    print str(len(ystr))
 
+    # base case
     if len(xstr) == 0 or len(ystr) == 0:
         print "Error: One or more of the inputs is null."
         return -1
@@ -21,6 +19,7 @@ def multiply(num1, num2):
     if len(xstr) == 1:
         return num1*num2
 
+    # Accounting for leading zeros
     if len(xstr) < len(ystr):
         print "Warning: numbers have different numbers of digits."
         while len(xstr) < len(ystr):
@@ -57,8 +56,8 @@ def main():
     """
     Function to test if Karatsuba algorithm is working correctly
     """
-    ans = multiply(3141592653589793238462643383279502884197169399375105820974944592, 2718281828459045235360287471352662497757247093699959574966967627)
-    #ans = multiply(31415999, 76270090)
+    #ans = multiply(3141592653589793238462643383279502884197169399375105820974944592, 2718281828459045235360287471352662497757247093699959574966967627)
+    ans = multiply(314314, 762762)
     print "The product is: " + str(ans)
 
 if __name__ == "__main__":
